@@ -120,7 +120,7 @@ var GM_wrench = GM_wrench || {};
             targetNodes.forEach(function (targetNode) {
                 var attrAlreadyFound = 'data-userscript-alreadyFound';
                 var alreadyFound = targetNode.getAttribute(attrAlreadyFound) || false;
-                if (!alreadyFound) {
+                if (!alreadyFound && waitOnce) {
                     var cancelFound = callback(targetNode);
                     if (cancelFound) {
                         targetsFound = false;
